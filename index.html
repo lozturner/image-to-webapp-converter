@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image to Web App Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Image to Interactive Web App</h1>
+    <p class="subtitle">Transform any image into a functional web application using AI</p>
+    
+    <div class="upload-section">
+      <div id="dropZone" class="drop-zone">
+        <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+        <p class="drop-text">Drag & Drop an image here</p>
+        <p class="drop-subtext">Pinterest designs, website screenshots, UI mockups</p>
+        <p class="or-text">or</p>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <label for="fileInput" class="upload-btn">📁 Choose Image</label>
+      </div>
+      <div id="imagePreview" class="image-preview"></div>
+    </div>
+    
+    <div class="controls">
+      <button id="analyzeBtn" class="btn btn-primary" disabled>
+        <span class="btn-icon">✨</span>
+        Analyze & Generate
+      </button>
+      <button id="clearBtn" class="btn btn-secondary">
+        <span class="btn-icon">🗑️</span>
+        Clear
+      </button>
+    </div>
+    
+    <div class="output-section" id="outputSection" style="display: none;">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="html">HTML</button>
+        <button class="tab-btn" data-tab="css">CSS</button>
+        <button class="tab-btn" data-tab="js">JavaScript</button>
+        <button class="tab-btn" data-tab="preview">Live Preview</button>
+      </div>
+      
+      <div class="tab-content active" id="html-content">
+        <div class="code-header">
+          <h3>Generated HTML</h3>
+          <button class="copy-btn" data-target="htmlOutput">📋 Copy</button>
+        </div>
+        <textarea id="htmlOutput" class="code-output" readonly></textarea>
+      </div>
+      
+      <div class="tab-content" id="css-content">
+        <div class="code-header">
+          <h3>Generated CSS</h3>
+          <button class="copy-btn" data-target="cssOutput">📋 Copy</button>
+        </div>
+        <textarea id="cssOutput" class="code-output" readonly></textarea>
+      </div>
+      
+      <div class="tab-content" id="js-content">
+        <div class="code-header">
+          <h3>Generated JavaScript</h3>
+          <button class="copy-btn" data-target="jsOutput">📋 Copy</button>
+        </div>
+        <textarea id="jsOutput" class="code-output" readonly></textarea>
+      </div>
+      
+      <div class="tab-content" id="preview-content">
+        <div class="preview-header">
+          <h3>Live Preview</h3>
+          <button id="openNewTab" class="copy-btn">🔗 Open in New Tab</button>
+        </div>
+        <iframe id="livePreview" sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+    </div>
+    
+    <div class="info-section">
+      <h2>How it works</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🖼️</div>
+          <h3>1. Upload Image</h3>
+          <p>Drag and drop any design, screenshot, or mockup</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>2. AI Analysis</h3>
+          <p>AI extracts layout, colors, typography, and elements</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>3. Code Generation</h3>
+          <p>Generates clean HTML, CSS, and JavaScript</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>4. Interactive Result</h3>
+          <p>Get a fully functional, interactive web app</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
